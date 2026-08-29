@@ -1,0 +1,2055 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&FLOW | Branding & UI/UX Design</title>
+    <meta
+      name="description"
+      content="ブランドとユーザーをつなぐ、今っぽく柔らかな制作会社LP。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            sm: "520px",
+            md: "640px",
+            lg: "760px",
+            xl: "1080px",
+            "2xl": "1280px",
+          },
+          extend: {
+            colors: {
+              limey: "#d9ff00",
+              violety: "#8b55ff",
+              pinky: "#ff6cb5",
+              cyany: "#27d8d5",
+              inky: "#070707",
+              mist: "#f7f8ff",
+            },
+            fontFamily: {
+              jp: ['"Noto Sans JP"', "sans-serif"],
+              hand: ['"Caveat"', "cursive"],
+              marker: ['"Permanent Marker"', "cursive"],
+            },
+            boxShadow: {
+              soft: "0 22px 70px rgba(20, 20, 40, .09)",
+              lift: "0 18px 42px rgba(18, 18, 22, .14)",
+              button: "0 11px 24px rgba(0, 0, 0, .22)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        overscroll-behavior-x: none;
+      }
+
+      @supports (overflow-x: clip) {
+        html,
+        body {
+          overflow-x: clip;
+        }
+      }
+
+      body {
+        font-family: "Noto Sans JP", sans-serif;
+        color: #090909;
+        background:
+          radial-gradient(circle at 4% 9%, rgba(139, 85, 255, 0.18) 0 90px, transparent 170px),
+          radial-gradient(circle at 94% 28%, rgba(255, 173, 124, 0.16) 0 130px, transparent 240px),
+          radial-gradient(circle at 6% 68%, rgba(139, 85, 255, 0.09) 0 120px, transparent 210px),
+          radial-gradient(circle at 90% 70%, rgba(255, 108, 181, 0.12) 0 135px, transparent 240px),
+          linear-gradient(180deg, #fbfbff 0%, #fff 38%, #f8fbff 100%);
+      }
+
+      .container-flow {
+        width: min(100% - 40px, 1200px);
+        margin-inline: auto;
+      }
+
+      .blob-photo {
+        border-radius: 42% 58% 47% 53% / 38% 40% 60% 62%;
+      }
+
+      .blob-soft {
+        border-radius: 45% 55% 62% 38% / 48% 42% 58% 52%;
+      }
+
+      .marker-underline {
+        position: relative;
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+      .marker-underline::after {
+        content: "";
+        position: absolute;
+        left: 4%;
+        right: -4%;
+        bottom: -10px;
+        height: 12px;
+        background: url("assets/images/decorative/scribble.svg") center / 100% 100% no-repeat;
+        color: #080808;
+        transform: rotate(-3deg);
+      }
+
+      .card-hover {
+        transition:
+          transform 0.28s ease,
+          box-shadow 0.28s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 26px 70px rgba(20, 20, 40, 0.13);
+      }
+
+      .media-hover {
+        transition:
+          transform 0.28s ease,
+          filter 0.28s ease;
+      }
+
+      .media-hover:hover {
+        transform: translateY(-8px);
+        filter: drop-shadow(0 16px 22px rgba(20, 20, 40, 0.08));
+      }
+
+      .cutout-img {
+        background: transparent;
+        box-shadow: none !important;
+        filter: contrast(1.06) saturate(1.04) drop-shadow(0 18px 28px rgba(20, 20, 40, 0.12));
+        image-rendering: auto;
+      }
+
+      .section-wave {
+        display: block;
+        height: 22px;
+        overflow: visible;
+      }
+
+      #hero .hero-main-img {
+        border-radius: 40% 60% 50% 50% / 28% 34% 66% 72%;
+        object-fit: cover;
+        box-shadow: none !important;
+        filter: contrast(1.07) saturate(1.05) drop-shadow(0 20px 34px rgba(20, 20, 40, 0.14));
+        image-rendering: auto;
+      }
+
+      #hero .hero-phone-img {
+        border-radius: 38% 62% 43% 57% / 34% 42% 58% 66%;
+        object-fit: cover;
+        box-shadow: none !important;
+        filter: contrast(1.07) saturate(1.05) drop-shadow(0 18px 28px rgba(20, 20, 40, 0.13));
+        image-rendering: auto;
+      }
+
+      .faq-panel {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.32s ease;
+      }
+
+      .mobile-menu-backdrop {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.28s ease;
+      }
+
+      .mobile-menu-backdrop[data-open="true"] {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .mobile-menu {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-12px) scale(0.98);
+        transition:
+          opacity 0.28s ease,
+          transform 0.28s ease;
+      }
+
+      .mobile-menu[data-open="true"] {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+
+      .top-button {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(18px) scale(0.94);
+        transition:
+          opacity 0.28s ease,
+          transform 0.28s ease,
+          box-shadow 0.28s ease;
+      }
+
+      .top-button[data-visible="true"] {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+
+      .top-button:hover {
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+      }
+
+      .top-button-icon {
+        transition: transform 0.24s ease;
+      }
+
+      .top-button:hover .top-button-icon {
+        transform: translateY(-2px);
+      }
+
+      .menu-line {
+        transform-origin: center;
+        transition:
+          transform 0.24s ease,
+          opacity 0.24s ease;
+      }
+
+      .menu-toggle[data-open="true"] .menu-line:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .menu-toggle[data-open="true"] .menu-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle[data-open="true"] .menu-line:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      .grain {
+        background-image:
+          radial-gradient(rgba(0, 0, 0, 0.055) 1px, transparent 1px),
+          linear-gradient(120deg, rgba(217, 255, 0, 0.92), rgba(255, 108, 181, 0.82) 46%, rgba(139, 85, 255, 0.88));
+        background-size:
+          7px 7px,
+          100% 100%;
+      }
+
+      @media (max-width: 768px) {
+        .container-flow {
+          width: min(100% - 28px, 1180px);
+        }
+      }
+
+      @media (max-width: 519px) {
+        body {
+          background:
+            radial-gradient(circle at -5% 9%, rgba(139, 85, 255, 0.22) 0 82px, transparent 148px),
+            radial-gradient(circle at 108% 31%, rgba(255, 173, 124, 0.14) 0 112px, transparent 215px),
+            radial-gradient(circle at 0% 70%, rgba(139, 85, 255, 0.08) 0 96px, transparent 185px),
+            radial-gradient(circle at 100% 78%, rgba(255, 108, 181, 0.11) 0 110px, transparent 210px),
+            linear-gradient(180deg, #fbfbff 0%, #fff 42%, #f8fbff 100%);
+        }
+
+        .container-flow {
+          width: min(100% - 24px, 1180px);
+        }
+
+        header {
+          padding-top: 18px !important;
+        }
+
+        header .container-flow {
+          gap: 12px;
+        }
+
+        .brand-logo {
+          gap: 10px;
+        }
+
+        .brand-logo > div {
+          font-size: 27px;
+        }
+
+        .brand-logo > span:nth-child(2),
+        .brand-logo > span:last-child {
+          display: none;
+        }
+
+        .header-contact {
+          height: 38px;
+          gap: 14px;
+          padding-left: 18px;
+          font-size: 10px;
+        }
+
+        .header-contact span {
+          width: 29px;
+          height: 29px;
+        }
+
+        #hero {
+          padding-top: 34px !important;
+          padding-bottom: 24px !important;
+        }
+
+        #hero .container-flow {
+          gap: 28px;
+        }
+
+        #hero .hero-copy {
+          text-align: center;
+        }
+
+        #hero .hero-title {
+          font-size: clamp(58px, 16vw, 66px) !important;
+          line-height: 0.86;
+        }
+
+        .marker-underline::after {
+          bottom: -5px;
+          height: 8px;
+        }
+
+        #hero .hero-body {
+          margin-inline: auto;
+          margin-top: 30px;
+          max-width: 100%;
+        }
+
+        #hero h1 {
+          font-size: 17px;
+          line-height: 1.7;
+        }
+
+        #hero .hero-body p {
+          margin-top: 16px;
+          font-size: 12px;
+          line-height: 1.85;
+        }
+
+        #hero .hero-body .mt-7 {
+          margin-top: 24px;
+          justify-content: center;
+        }
+
+        #hero .hero-body a {
+          height: 46px;
+          gap: 22px;
+          padding-left: 24px;
+          font-size: 12px;
+        }
+
+        #hero .hero-body a span {
+          width: 34px;
+          height: 34px;
+        }
+
+        #hero .hero-visual {
+          width: min(100%, 372px);
+          margin-inline: auto;
+          min-height: 315px !important;
+        }
+
+        #hero .hero-main-img {
+          left: 50% !important;
+          top: 0 !important;
+          width: 78% !important;
+          transform: translateX(-50%) rotate(1deg) !important;
+          border-radius: 40% 60% 50% 50% / 28% 34% 66% 72%;
+        }
+
+        #hero .hero-phone-img {
+          right: 0 !important;
+          bottom: 14px !important;
+          width: 176px !important;
+          border-radius: 38% 62% 43% 57% / 34% 42% 58% 66%;
+        }
+
+        #hero .hero-badge {
+          left: 8px !important;
+          bottom: 78px !important;
+          width: 92px !important;
+          height: 92px !important;
+          font-size: 11px !important;
+        }
+
+        #hero .hero-visual > span {
+          right: 205px;
+          bottom: 44px;
+        }
+
+        #service,
+        #works,
+        #strengths,
+        #flow,
+        #plan,
+        #faq {
+          padding-top: 52px !important;
+          padding-bottom: 34px !important;
+        }
+
+        #service .container-flow,
+        #flow .container-flow,
+        #plan .container-flow,
+        #faq .container-flow {
+          gap: 26px;
+        }
+
+        #service,
+        #works,
+        #strengths,
+        #flow,
+        #plan,
+        #faq,
+        #contact {
+          text-align: center;
+        }
+
+        #service img[src*="wave"],
+        #works img[src*="wave"],
+        #strengths img[src*="wave"],
+        #flow img[src*="wave"],
+        #plan img[src*="wave"],
+        #faq img[src*="wave"],
+        #service .section-wave,
+        #works .section-wave,
+        #strengths .section-wave,
+        #flow .section-wave,
+        #plan .section-wave,
+        #faq .section-wave,
+        #service img[src*="scribble"],
+        #plan img[src*="scribble"] {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        #service h2,
+        #works h2,
+        #strengths h2,
+        #flow h2,
+        #plan h2,
+        #faq h2 {
+          font-size: 26px;
+          line-height: 1.42;
+        }
+
+        #service .container-flow > div:first-child p:last-of-type,
+        #flow .container-flow > div:first-child p:last-of-type,
+        #plan .container-flow > div:first-child p:last-of-type {
+          max-width: 100%;
+          font-size: 12px;
+          line-height: 1.9;
+        }
+
+        #service .grid.md\:grid-cols-3 {
+          gap: 14px;
+        }
+
+        #service article {
+          display: block;
+          max-width: 360px;
+          margin-inline: auto;
+          padding: 23px 20px !important;
+          border-radius: 26px;
+        }
+
+        #service article > div:first-child {
+          width: 58px;
+          height: 58px;
+          margin: 0 auto;
+        }
+
+        #service article svg {
+          width: 48px;
+          height: 48px;
+        }
+
+        #service article h3,
+        #service article p {
+          text-align: center;
+        }
+
+        #service article h3 {
+          margin-top: 12px;
+          font-size: 12px;
+        }
+
+        #service article p {
+          margin-top: 8px;
+          font-size: 11px;
+          line-height: 1.65;
+        }
+
+        #works .grid.sm\:grid-cols-2,
+        #strengths .grid.sm\:grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px 15px;
+        }
+
+        #works .mb-7,
+        #strengths .mb-9 {
+          margin-bottom: 24px;
+        }
+
+        #works article img {
+          height: 106px;
+          border-radius: 24px;
+        }
+
+        #works article h3,
+        #strengths article h3 {
+          margin-top: 12px;
+          font-size: 12px;
+          line-height: 1.55;
+        }
+
+        #works article p,
+        #strengths article p {
+          margin-top: 7px;
+          font-size: 10px;
+          line-height: 1.7;
+        }
+
+        #works article,
+        #strengths article {
+          max-width: 180px;
+          margin-inline: auto;
+        }
+
+        #strengths article img {
+          height: 104px;
+          border-radius: 24px;
+        }
+
+        #flow article {
+          max-width: 320px;
+          margin-inline: auto;
+        }
+
+        #plan article {
+          padding: 28px 26px !important;
+          border-radius: 28px;
+        }
+
+        #plan article p {
+          font-size: 30px;
+        }
+
+        #faq button {
+          gap: 12px;
+          padding-top: 18px;
+          padding-bottom: 18px;
+          text-align: left;
+        }
+
+        #faq button span:nth-child(2) {
+          font-size: 12px;
+          line-height: 1.6;
+        }
+
+        #faq [data-faq-icon] {
+          width: 34px;
+          height: 34px;
+        }
+
+        #contact {
+          padding-top: 34px !important;
+        }
+
+        #contact .grain {
+          border-radius: 34px;
+          padding: 30px 24px;
+        }
+
+        #contact .relative.z-10 {
+          justify-items: center;
+          gap: 20px;
+        }
+
+        #contact h2 {
+          font-size: 27px;
+          line-height: 1.28;
+        }
+
+        #contact p {
+          font-size: 12px;
+          line-height: 1.85;
+        }
+      }
+
+      @media (max-width: 759px) {
+        .header-contact {
+          display: none !important;
+        }
+
+        #contact .relative.z-10 > div:last-child {
+          width: min(100%, 320px);
+          min-height: 0;
+        }
+
+        #contact img[alt="相談中の人物とインテリア"] {
+          position: relative !important;
+          right: auto !important;
+          top: auto !important;
+          display: block;
+          width: 100%;
+          max-width: 320px;
+          margin-inline: auto;
+          transform: none !important;
+        }
+
+        #contact img[alt="相談中の人物とインテリア"] + img {
+          right: 4px;
+          top: -8px;
+        }
+      }
+
+      @media (min-width: 760px) and (max-width: 1079px) {
+        .container-flow {
+          width: min(100% - 44px, 840px);
+        }
+
+        header {
+          padding-top: 16px !important;
+        }
+
+        .brand-logo {
+          gap: 12px;
+        }
+
+        .brand-logo > div {
+          font-size: 24px;
+        }
+
+        .brand-logo > span:last-child {
+          font-size: 8px;
+          max-width: 76px;
+        }
+
+        header nav {
+          margin-left: auto;
+          gap: 22px !important;
+          font-size: 8px;
+        }
+
+        .header-contact {
+          height: 36px;
+          gap: 14px;
+          padding-left: 18px;
+          font-size: 9px;
+        }
+
+        .header-contact span {
+          width: 28px;
+          height: 28px;
+        }
+
+        #hero {
+          height: 360px;
+          padding-top: 18px !important;
+          padding-bottom: 0 !important;
+        }
+
+        #hero .container-flow {
+          height: 100%;
+          gap: 22px;
+          grid-template-columns: 1fr 1.04fr;
+        }
+
+        #hero .hero-copy {
+          padding-left: 34px;
+        }
+
+        #hero .hero-title {
+          font-size: 62px !important;
+          line-height: 0.83;
+        }
+
+        #hero .hero-body {
+          margin-top: 28px;
+        }
+
+        #hero h1 {
+          font-size: 14px;
+          line-height: 1.55;
+        }
+
+        #hero .hero-body p {
+          margin-top: 12px;
+          font-size: 10px;
+          line-height: 1.75;
+        }
+
+        #hero .hero-body a {
+          height: 36px;
+          gap: 18px;
+          padding-left: 22px;
+          font-size: 10px;
+        }
+
+        #hero .hero-body a span {
+          width: 30px;
+          height: 30px;
+        }
+
+        #hero .hero-visual {
+          min-height: 322px !important;
+        }
+
+        #hero .hero-main-img {
+          top: -36px !important;
+          left: -4px !important;
+          width: 365px !important;
+        }
+
+        #hero .hero-phone-img {
+          right: 6px !important;
+          bottom: 58px !important;
+          width: 155px !important;
+        }
+
+        #hero .hero-badge {
+          left: -22px !important;
+          bottom: 100px !important;
+          width: 88px !important;
+          height: 88px !important;
+          font-size: 10px !important;
+        }
+
+        #service {
+          height: 210px;
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+          display: flex;
+          align-items: center;
+        }
+
+        #service .container-flow {
+          grid-template-columns: 280px 1fr;
+          gap: 18px;
+        }
+
+        #service .container-flow > div:first-child {
+          padding-left: 0;
+        }
+
+        #service h2 {
+          margin-top: 10px;
+          font-size: 18.5px;
+          line-height: 1.48;
+        }
+
+        #service .container-flow > div:first-child p:last-of-type {
+          margin-top: 16px;
+          font-size: 9.5px;
+          line-height: 1.8;
+        }
+
+        #service .container-flow > div:first-child img {
+          margin-top: 16px;
+          width: 94px;
+        }
+
+        #service article {
+          min-height: 156px;
+          border-radius: 24px;
+          padding: 17px 13px !important;
+        }
+
+        #service article .h-20 {
+          width: 44px;
+          height: 44px;
+        }
+
+        #service article svg {
+          width: 42px;
+          height: 42px;
+        }
+
+        #service article h3 {
+          margin-top: 9px;
+          font-size: 10px;
+        }
+
+        #service article p {
+          margin-top: 7px;
+          font-size: 9.5px;
+          line-height: 1.55;
+        }
+
+        #works {
+          height: 270px;
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+        }
+
+        #works .container-flow {
+          padding-top: 16px;
+        }
+
+        #works .mb-7 {
+          margin-bottom: 12px;
+        }
+
+        #works h2,
+        #strengths h2,
+        #flow h2,
+        #plan h2,
+        #faq h2 {
+          font-size: 24px;
+        }
+
+        #works article img {
+          height: 88px;
+          border-radius: 24px;
+        }
+
+        #works article h3 {
+          margin-top: 9px;
+          font-size: 11.5px;
+          line-height: 1.45;
+        }
+
+        #works article p {
+          margin-top: 6px;
+          font-size: 9px;
+          line-height: 1.7;
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+
+        #strengths {
+          height: 300px;
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+        }
+
+        #strengths .container-flow {
+          padding-top: 12px;
+        }
+
+        #strengths .mb-9 {
+          margin-bottom: 12px;
+        }
+
+        #strengths article img {
+          height: 96px;
+          border-radius: 24px;
+        }
+
+        #strengths article h3 {
+          margin-top: 9px;
+          font-size: 12px;
+        }
+
+        #strengths article p {
+          margin-top: 6px;
+          font-size: 9px;
+          line-height: 1.65;
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+
+        #plan {
+          height: 282px;
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+          display: flex;
+          align-items: center;
+        }
+
+        #plan .container-flow {
+          grid-template-columns: 210px 1fr;
+          gap: 24px;
+        }
+
+        #plan .container-flow > div:first-child {
+          padding-left: 0;
+        }
+
+        #plan .container-flow > div:first-child p:last-of-type {
+          margin-top: 26px;
+          font-size: 9px;
+          line-height: 1.85;
+        }
+
+        #plan article {
+          min-height: 198px;
+          border-radius: 24px;
+          padding: 20px 20px !important;
+        }
+
+        #plan article h3 {
+          font-size: 11px;
+        }
+
+        #plan article p {
+          margin-top: 14px;
+          font-size: 22px;
+        }
+
+        #plan article ul {
+          margin-top: 15px;
+          font-size: 9.5px;
+        }
+
+        #plan article a {
+          height: 35px;
+          margin-top: 17px;
+          font-size: 10px;
+        }
+
+        #plan article a span {
+          width: 28px;
+          height: 28px;
+        }
+
+        #faq {
+          height: 148px;
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+          display: flex;
+          align-items: center;
+        }
+
+        #faq .container-flow {
+          grid-template-columns: 300px 1fr;
+          gap: 34px;
+        }
+
+        #faq .container-flow > div:first-child {
+          padding-left: 0;
+        }
+
+        #faq img[alt="柔らかなソファがあるラウンジ空間"] {
+          max-width: 235px;
+          height: 70px;
+        }
+
+        #faq button {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+
+        #faq button span:nth-child(2) {
+          font-size: 11px;
+        }
+
+        #faq [data-faq-icon] {
+          width: 28px;
+          height: 28px;
+        }
+
+        #faq .faq-panel p {
+          padding-bottom: 12px;
+          font-size: 9px;
+        }
+
+        #contact {
+          margin-top: -18px;
+          padding-top: 8px !important;
+          padding-bottom: 10px !important;
+        }
+
+        #contact .grain {
+          border-radius: 40px;
+          height: 160px;
+          padding: 16px 70px;
+        }
+
+        #contact h2 {
+          font-size: 22px;
+          line-height: 1.2;
+        }
+
+        #contact p {
+          font-size: 10px;
+          line-height: 1.45;
+        }
+
+        #contact a {
+          height: 32px;
+          margin-top: 8px;
+          font-size: 10px;
+        }
+
+        #contact a span {
+          width: 25px;
+          height: 25px;
+        }
+
+        #contact img[alt="相談中の人物とインテリア"] {
+          max-width: 220px;
+        }
+
+        #contact .relative.z-10 > div:last-child {
+          min-height: 110px;
+        }
+
+        .top-button {
+          right: 14px;
+          bottom: 14px;
+          height: 44px;
+          gap: 10px;
+          padding-left: 16px;
+          padding-right: 5px;
+          font-size: 10px;
+        }
+
+        .top-button-icon {
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      @media (max-width: 519px) {
+        .top-button {
+          right: calc(env(safe-area-inset-right, 0px) + 16px);
+          bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+          width: 50px;
+          min-width: 50px;
+          height: 50px;
+          justify-content: center;
+          gap: 0;
+          overflow: visible;
+          padding: 0;
+          font-size: 11px;
+          line-height: 1;
+          letter-spacing: 0.08em;
+        }
+
+        .top-button-icon {
+          display: none;
+        }
+
+        #service,
+        #works,
+        #strengths,
+        #flow,
+        #plan,
+        #faq {
+          padding-top: 64px !important;
+          padding-bottom: 44px !important;
+        }
+
+        #works .grid.sm\:grid-cols-2,
+        #strengths .grid.sm\:grid-cols-2 {
+          grid-template-columns: 1fr;
+          gap: 34px;
+        }
+
+        #works article,
+        #strengths article {
+          max-width: 315px;
+        }
+
+        #works article img {
+          height: 172px;
+          border-radius: 30px;
+        }
+
+        #strengths article img {
+          height: 166px;
+          border-radius: 30px;
+        }
+
+        #works article h3,
+        #strengths article h3 {
+          margin-top: 14px;
+          font-size: 14px;
+          line-height: 1.55;
+        }
+
+        #works article p,
+        #strengths article p {
+          margin-top: 8px;
+          font-size: 11px;
+          line-height: 1.75;
+          display: block;
+          overflow: visible;
+          -webkit-line-clamp: initial;
+        }
+
+        #flow article {
+          padding: 30px 24px !important;
+        }
+      }
+
+      @media (min-width: 760px) and (max-width: 1079px) {
+        header nav {
+          gap: 18px !important;
+          font-size: 10px;
+        }
+
+        #hero {
+          height: auto;
+          min-height: 420px;
+          padding-top: 30px !important;
+          padding-bottom: 44px !important;
+        }
+
+        #hero .container-flow {
+          height: auto;
+          align-items: center;
+        }
+
+        #hero .hero-title {
+          font-size: 68px !important;
+          line-height: 0.86;
+        }
+
+        #hero h1 {
+          font-size: 15px;
+        }
+
+        #hero .hero-body p {
+          font-size: 11px;
+        }
+
+        #service,
+        #works,
+        #strengths,
+        #plan,
+        #faq {
+          height: auto;
+          padding-top: 58px !important;
+          padding-bottom: 58px !important;
+          display: block;
+        }
+
+        #service .container-flow {
+          grid-template-columns: 300px 1fr;
+          gap: 28px;
+        }
+
+        #service h2 {
+          font-size: 22px;
+        }
+
+        #service .container-flow > div:first-child p:last-of-type,
+        #plan .container-flow > div:first-child p:last-of-type {
+          font-size: 11px;
+        }
+
+        #service article h3,
+        #plan article h3 {
+          font-size: 12px;
+        }
+
+        #service article p,
+        #plan article ul {
+          font-size: 10.5px;
+          line-height: 1.7;
+        }
+
+        #works .container-flow,
+        #strengths .container-flow {
+          padding-top: 0;
+        }
+
+        #works article img {
+          height: 118px;
+        }
+
+        #strengths article img {
+          height: 126px;
+        }
+
+        #works article h3,
+        #strengths article h3 {
+          font-size: 12.5px;
+        }
+
+        #works article p,
+        #strengths article p {
+          font-size: 10.5px;
+          line-height: 1.75;
+          -webkit-line-clamp: 3;
+        }
+
+        #plan .container-flow {
+          grid-template-columns: 230px 1fr;
+          gap: 30px;
+        }
+
+        #plan article {
+          min-height: 230px;
+        }
+
+        #plan article p {
+          font-size: 25px;
+        }
+
+        #faq .container-flow {
+          grid-template-columns: 320px 1fr;
+          gap: 38px;
+        }
+
+        #faq img[alt="柔らかなソファがあるラウンジ空間"] {
+          max-width: 285px;
+          height: 94px;
+        }
+
+        #faq button span:nth-child(2) {
+          font-size: 12px;
+        }
+
+        #contact {
+          margin-top: 0;
+          padding-top: 28px !important;
+          padding-bottom: 24px !important;
+        }
+
+        #contact .grain {
+          height: auto;
+          min-height: 190px;
+          padding: 28px 48px;
+        }
+
+        #contact p {
+          font-size: 11px;
+          line-height: 1.75;
+        }
+      }
+
+      /* Keep the complete hero visual inside shorter first viewports. */
+      @media (min-width: 1080px) and (max-height: 900px) {
+        header {
+          padding-top: 18px !important;
+        }
+
+        #hero {
+          padding-top: clamp(18px, 3svh, 28px) !important;
+          padding-bottom: clamp(22px, 4svh, 36px) !important;
+        }
+
+        #hero .hero-title {
+          font-size: clamp(80px, 10.8svh, 90px) !important;
+          line-height: 0.84;
+        }
+
+        #hero .hero-body {
+          margin-top: 28px;
+        }
+
+        #hero .hero-body p {
+          margin-top: 14px;
+          line-height: 1.8;
+        }
+
+        #hero .hero-body .mt-7 {
+          margin-top: 20px;
+        }
+
+        #hero .hero-visual {
+          min-height: clamp(360px, 50svh, 420px) !important;
+        }
+
+        #hero .hero-main-img {
+          width: clamp(430px, 28vw, 480px) !important;
+        }
+
+        #hero .hero-phone-img {
+          bottom: 24px !important;
+          width: clamp(170px, 11vw, 190px) !important;
+        }
+
+        #hero .hero-badge {
+          bottom: 78px !important;
+          width: 104px !important;
+          height: 104px !important;
+        }
+
+      }
+
+      @media (max-width: 519px) and (max-height: 780px) {
+        #hero {
+          padding-top: 20px !important;
+          padding-bottom: 12px !important;
+        }
+
+        #hero .container-flow {
+          gap: 16px;
+        }
+
+        #hero .hero-title {
+          font-size: clamp(48px, 13.5vw, 54px) !important;
+        }
+
+        #hero .hero-body {
+          margin-top: 20px;
+        }
+
+        #hero h1 {
+          font-size: 15px;
+          line-height: 1.6;
+        }
+
+        #hero .hero-body p {
+          margin-top: 10px;
+          line-height: 1.65;
+        }
+
+        #hero .hero-body .mt-7 {
+          margin-top: 14px;
+        }
+
+        #hero .hero-body a {
+          height: 42px;
+        }
+
+        #hero .hero-visual {
+          min-height: 250px !important;
+        }
+
+        #hero .hero-main-img {
+          width: 74% !important;
+        }
+
+        #hero .hero-phone-img {
+          bottom: 10px !important;
+          width: 140px !important;
+        }
+
+        #hero .hero-badge {
+          bottom: 62px !important;
+          width: 78px !important;
+          height: 78px !important;
+          font-size: 9px !important;
+        }
+      }
+
+      .hero-signature {
+        display: none;
+      }
+
+      @media (min-width: 760px) {
+        .hero-signature {
+          position: absolute;
+          bottom: clamp(36px, 5.5svh, 100px);
+          left: 50%;
+          z-index: 35;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          padding-inline: 64px;
+          transform: translateX(-50%);
+          pointer-events: none;
+        }
+
+        .hero-signature-labels {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .hero-signature-label {
+          display: flex;
+          height: 30px;
+          align-items: center;
+          gap: 7px;
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.64);
+          padding-inline: 12px;
+          font-size: 8px;
+          font-weight: 900;
+          letter-spacing: 0.13em;
+          text-transform: uppercase;
+          box-shadow: 0 10px 30px rgba(20, 20, 40, 0.06);
+          backdrop-filter: blur(10px);
+        }
+
+        .hero-signature-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 999px;
+        }
+
+        .hero-signature-line {
+          position: relative;
+          flex: 1;
+          height: 1px;
+          background: linear-gradient(90deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.05));
+        }
+
+        .hero-signature-line::before,
+        .hero-signature-line::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          border-radius: 999px;
+          transform: translateY(-50%);
+        }
+
+        .hero-signature-line::before {
+          left: 30%;
+          width: 7px;
+          height: 7px;
+          border: 1px solid rgba(0, 0, 0, 0.28);
+          background: #fbfbff;
+        }
+
+        .hero-signature-line::after {
+          right: 12%;
+          width: 5px;
+          height: 5px;
+          background: #ff6cb5;
+        }
+
+        .hero-scroll-link {
+          display: flex;
+          height: 40px;
+          align-items: center;
+          gap: 14px;
+          border-radius: 999px;
+          background: #070707;
+          padding: 4px 4px 4px 18px;
+          color: white;
+          font-size: 9px;
+          font-weight: 900;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+          pointer-events: auto;
+          transition: transform 0.24s ease, box-shadow 0.24s ease;
+        }
+
+        .hero-scroll-link:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 17px 34px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-scroll-icon {
+          display: grid;
+          width: 32px;
+          height: 32px;
+          place-items: center;
+          border-radius: 999px;
+          background: #d9ff00;
+          color: #070707;
+          font-size: 14px;
+        }
+      }
+
+      @media (min-width: 760px) and (max-height: 620px) {
+        .hero-signature {
+          display: none;
+        }
+      }
+
+      #hero {
+        box-sizing: border-box;
+        display: flex;
+        height: var(--first-view-height, calc(100vh - var(--header-height, 72px) + 2px));
+        min-height: var(--first-view-height, calc(100vh - var(--header-height, 72px) + 2px));
+        align-items: center;
+      }
+
+      #hero > .container-flow {
+        flex: none;
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden antialiased">
+    <!-- HEADER -->
+    <header class="relative z-50 pt-5 lg:pt-7">
+      <div class="container-flow flex items-center justify-between gap-6">
+        <a href="#" class="brand-logo flex items-center gap-4" aria-label="&FLOW home">
+          <div class="flex items-baseline gap-0.5 text-[28px] font-black tracking-[0.02em]">
+            <span class="text-limey">&amp;</span><span>FLOW</span>
+          </div>
+          <span class="h-8 w-px bg-black/25"></span>
+          <span class="max-w-[100px] text-[10px] font-black uppercase leading-[1.25] tracking-[0.1em]">
+            Branding &amp;<br />UI/UX Design
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-11 text-[12px] font-black uppercase tracking-[0.08em] lg:flex">
+          <a class="transition hover:text-violety" href="#service">Service</a>
+          <a class="transition hover:text-violety" href="#works">Works</a>
+          <a class="transition hover:text-violety" href="#strengths">Strengths</a>
+          <a class="transition hover:text-violety" href="#flow">Flow</a>
+          <a class="transition hover:text-violety" href="#plan">Plan</a>
+          <a class="transition hover:text-violety" href="#faq">FAQ</a>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a
+            href="#contact"
+            class="header-contact card-hover flex h-11 items-center gap-5 rounded-full bg-black py-1 pl-6 pr-1.5 text-[11px] font-black uppercase tracking-[0.08em] text-white shadow-button"
+          >
+            Contact
+            <span class="grid size-8 place-items-center rounded-full bg-limey text-black">
+              <span aria-hidden="true">›</span>
+            </span>
+          </a>
+
+          <button
+            type="button"
+            class="menu-toggle card-hover flex size-11 flex-col items-center justify-center gap-1.5 rounded-full bg-black shadow-button lg:hidden"
+            aria-label="メニューを開く"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            data-menu-toggle
+            data-open="false"
+          >
+            <span class="menu-line h-[2px] w-5 rounded-full bg-limey"></span>
+            <span class="menu-line h-[2px] w-5 rounded-full bg-limey"></span>
+            <span class="menu-line h-[2px] w-5 rounded-full bg-limey"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu-backdrop fixed inset-0 z-40 bg-black/10 backdrop-blur-[2px] lg:hidden" data-mobile-backdrop data-open="false"></div>
+      <div
+        id="mobile-menu"
+        class="mobile-menu fixed inset-x-3 top-[74px] z-50 overflow-hidden rounded-[32px] border border-white/80 bg-white/90 p-5 shadow-lift backdrop-blur-xl lg:hidden"
+        data-mobile-menu
+        data-open="false"
+      >
+        <span class="pointer-events-none absolute -right-4 -top-5 size-20 rounded-full bg-limey/90"></span>
+        <span class="pointer-events-none absolute -bottom-6 left-5 size-16 rounded-full bg-pinky/65 blur-[1px]"></span>
+        <div class="relative z-10">
+          <p class="font-hand text-[28px] font-bold leading-none text-violety">Menu</p>
+          <nav class="mt-5 grid gap-3 text-[13px] font-black uppercase tracking-[0.12em]" aria-label="Mobile navigation">
+            <a class="flex items-center justify-between rounded-full bg-white px-5 py-3 shadow-soft" href="#service" data-menu-link>
+              Service<span class="size-2 rounded-full bg-violety"></span>
+            </a>
+            <a class="flex items-center justify-between rounded-full bg-white px-5 py-3 shadow-soft" href="#works" data-menu-link>
+              Works<span class="size-2 rounded-full bg-pinky"></span>
+            </a>
+            <a class="flex items-center justify-between rounded-full bg-white px-5 py-3 shadow-soft" href="#strengths" data-menu-link>
+              Strengths<span class="size-2 rounded-full bg-cyany"></span>
+            </a>
+            <a class="flex items-center justify-between rounded-full bg-white px-5 py-3 shadow-soft" href="#flow" data-menu-link>
+              Flow<span class="size-2 rounded-full bg-limey"></span>
+            </a>
+            <a class="flex items-center justify-between rounded-full bg-white px-5 py-3 shadow-soft" href="#plan" data-menu-link>
+              Plan<span class="size-2 rounded-full bg-limey"></span>
+            </a>
+            <a class="flex items-center justify-between rounded-full bg-white px-5 py-3 shadow-soft" href="#faq" data-menu-link>
+              FAQ<span class="size-2 rounded-full bg-pinky"></span>
+            </a>
+          </nav>
+          <a
+            href="#contact"
+            class="mt-5 flex h-12 items-center justify-between rounded-full bg-black pl-6 pr-1.5 text-[12px] font-black uppercase tracking-[0.1em] text-white shadow-button"
+            data-menu-link
+          >
+            Contact
+            <span class="grid size-9 place-items-center rounded-full bg-limey text-black">›</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section id="hero" class="relative overflow-hidden pb-12 pt-10 sm:pt-14 lg:pb-16 lg:pt-10">
+        <div class="pointer-events-none absolute -left-16 top-12 h-40 w-52 rotate-[-8deg] bg-violety/75 blur-[1px] blob-soft"></div>
+        <div class="pointer-events-none absolute left-[48%] top-14 h-10 w-14 rotate-[-18deg] bg-limey blob-soft"></div>
+        <div class="pointer-events-none absolute right-10 top-2 h-12 w-12 bg-limey blob-soft"></div>
+        <div class="container-flow relative grid items-center gap-10 lg:grid-cols-[1fr_1.04fr]">
+          <div class="hero-copy relative z-10 pl-0 lg:pl-16">
+            <p class="hero-title font-hand text-[72px] font-bold leading-[0.86] tracking-normal sm:text-[82px] lg:text-[78px] xl:text-[96px]">
+              Design<br />
+              That Moves<br />
+              <span class="marker-underline text-limey">Your Business.</span>
+            </p>
+            <div class="hero-body mt-10 max-w-[430px]">
+              <h1 class="text-[19px] font-black leading-relaxed tracking-[0.03em]">
+                デザインで、ビジネスの未来を動かす。
+              </h1>
+              <p class="mt-5 text-[13px] font-bold leading-[2] text-black/80">
+                ブランドの魅力を最大化し、<br class="hidden sm:block" />
+                ユーザーの心を動かす体験をデザインします。
+              </p>
+              <div class="mt-7 flex items-center gap-7">
+                <a
+                  href="#contact"
+                  class="card-hover flex h-12 items-center gap-7 rounded-full bg-limey py-1 pl-7 pr-1.5 text-[13px] font-black shadow-button"
+                >
+                  無料で相談してみる
+                  <span class="grid size-9 place-items-center rounded-full bg-black text-white">
+                    →
+                  </span>
+                </a>
+                <img
+                  class="hidden w-16 rotate-[18deg] text-black md:block"
+                  src="assets/images/decorative/scribble.svg"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual relative min-h-[360px] lg:min-h-[370px] xl:min-h-[455px]">
+            <img
+              src="assets/images/hero-main.webp"
+              alt="明るいオフィスでミーティングをするチーム"
+              class="hero-main-img absolute left-6 top-2 z-10 w-[78%] max-w-[520px] rotate-[1deg] rounded-[52px] shadow-lift lg:left-0 lg:w-[390px] xl:w-[520px]"
+              loading="eager"
+            />
+            <img
+              src="assets/images/hero-phone.webp"
+              alt="スマートフォンに表示されたアプリ画面"
+              class="hero-phone-img absolute bottom-8 right-2 z-20 w-[180px] rounded-[42px] shadow-soft sm:right-10 lg:bottom-8 lg:right-8 xl:w-[210px]"
+              loading="eager"
+            />
+            <div class="hero-badge absolute bottom-24 left-2 z-30 grid size-[100px] place-items-center rounded-full bg-pinky text-center text-[12px] font-black uppercase leading-[1.45] tracking-[0.08em] text-white shadow-soft sm:left-0 lg:bottom-20 lg:left-[-18px] xl:left-[-34px] xl:size-[118px] xl:text-[13px]">
+              Branding<br />UI/UX<br />Digital
+            </div>
+            <img
+              src="assets/images/decorative/wave.svg"
+              alt=""
+              class="absolute right-4 top-[100px] z-20 w-12 rotate-[-56deg] text-limey"
+            />
+            <span class="absolute bottom-12 right-[205px] z-20 h-8 w-9 rotate-[28deg] rounded-[70%_30%_60%_40%] bg-limey"></span>
+          </div>
+        </div>
+
+        <div class="hero-signature container-flow">
+          <div class="hero-signature-labels" aria-hidden="true">
+            <span class="hero-signature-label">
+              <span class="hero-signature-dot bg-limey"></span>Branding
+            </span>
+            <span class="hero-signature-label">
+              <span class="hero-signature-dot bg-pinky"></span>UI/UX
+            </span>
+            <span class="hero-signature-label">
+              <span class="hero-signature-dot bg-cyany"></span>Digital
+            </span>
+          </div>
+          <span class="hero-signature-line" aria-hidden="true"></span>
+          <a href="#service" class="hero-scroll-link">
+            Explore
+            <span class="hero-scroll-icon" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- SERVICE SECTION -->
+      <section id="service" class="relative py-12 lg:py-14">
+        <div class="container-flow grid gap-12 lg:grid-cols-[.86fr_1.54fr] lg:items-center">
+          <div class="lg:pl-16">
+            <p class="text-[12px] font-black uppercase tracking-[0.08em] text-violety">Service</p>
+            <h2 class="mt-4 text-[29px] font-black leading-[1.55] tracking-[0.02em] lg:text-[32px]">
+              ブランドとユーザーをつなぐ<br />デザインを。
+            </h2>
+            <p class="mt-7 max-w-[360px] text-[12px] font-bold leading-[2.05] text-black/72">
+              ブランディングからUI/UXまでワンストップで支援。
+              課題を深く理解し、ビジネスの成長を加速させる
+              クリエイティブを提供します。
+            </p>
+            <svg class="section-wave mt-8 w-36 text-violety" viewBox="0 0 140 22" fill="none" aria-hidden="true">
+              <path d="M2 11C8 3 14 3 20 11C26 19 32 19 38 11C44 3 50 3 56 11C62 19 68 19 74 11C80 3 86 3 92 11C98 19 104 19 110 11C116 3 122 3 128 11C132 16 136 18 138 18" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
+            </svg>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-3">
+            <article class="card-hover rounded-[32px] bg-white/86 p-7 shadow-soft backdrop-blur xl:p-9">
+              <div class="mx-auto grid h-20 w-20 place-items-center text-limey">
+                <svg viewBox="0 0 72 72" fill="none" class="h-16 w-16">
+                  <path d="M36 6v44" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+                  <path d="M36 12h18l-6 9 6 9H36" fill="currentColor" opacity=".95" />
+                  <path d="M18 58h36L36 28 18 58Z" fill="currentColor" />
+                  <path d="M28 49h16" stroke="white" stroke-width="4" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3 class="mt-7 text-center text-[13px] font-black uppercase tracking-[0.08em] text-limey">Branding</h3>
+              <p class="mt-4 text-center text-[13px] font-black">ブランド戦略・CI/VI開発</p>
+              <p class="mt-4 text-center text-[11px] font-bold leading-[1.9] text-black/70">
+                ブランドの価値を言語化し、<br />一貫した体験を設計します。
+              </p>
+            </article>
+            <article class="card-hover rounded-[32px] bg-white/86 p-7 shadow-soft backdrop-blur xl:p-9">
+              <div class="mx-auto grid h-20 w-20 place-items-center text-violety">
+                <svg viewBox="0 0 72 72" fill="none" class="h-16 w-16">
+                  <rect x="22" y="7" width="28" height="58" rx="6" stroke="currentColor" stroke-width="5" />
+                  <path d="M31 14h10M33 57h6" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3 class="mt-7 text-center text-[13px] font-black uppercase tracking-[0.08em] text-violety">UI/UX Design</h3>
+              <p class="mt-4 text-center text-[13px] font-black">UI/UX設計・改善</p>
+              <p class="mt-4 text-center text-[11px] font-bold leading-[1.9] text-black/70">
+                ユーザー視点で直感的な体験を<br />デザインし、成果につなげます。
+              </p>
+            </article>
+            <article class="card-hover rounded-[32px] bg-white/86 p-7 shadow-soft backdrop-blur xl:p-9">
+              <div class="mx-auto grid h-20 w-20 place-items-center text-cyany">
+                <svg viewBox="0 0 72 72" fill="none" class="h-16 w-16">
+                  <path d="M16 56c10-27 27-40 47-47-7 21-20 37-47 47Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round" />
+                  <path d="M19 53 8 64l11-3 3-11M37 35l-19-17M42 30l13 13" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                  <circle cx="45" cy="27" r="5" fill="currentColor" />
+                </svg>
+              </div>
+              <h3 class="mt-7 text-center text-[13px] font-black uppercase tracking-[0.08em] text-cyany">Digital Design</h3>
+              <p class="mt-4 text-center text-[13px] font-black">Web・グラフィック制作</p>
+              <p class="mt-4 text-center text-[11px] font-bold leading-[1.9] text-black/70">
+                Webサイトや各種ツールを<br />魅力的にデザインします。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKS SECTION -->
+      <section id="works" class="relative py-12 lg:py-14">
+        <div class="pointer-events-none absolute -left-24 top-6 h-72 w-72 rotate-[-25deg] bg-limey/12 blob-soft"></div>
+        <div class="container-flow relative">
+          <div class="mb-7 flex items-end justify-between gap-5 lg:px-16">
+            <div>
+              <p class="text-[12px] font-black uppercase tracking-[0.08em] text-pinky">Works</p>
+              <h2 class="mt-3 text-[31px] font-black tracking-[0.08em]">製作実績</h2>
+              <svg class="section-wave mt-1 w-24 text-pinky" viewBox="0 0 140 22" fill="none" aria-hidden="true">
+                <path d="M2 11C8 3 14 3 20 11C26 19 32 19 38 11C44 3 50 3 56 11C62 19 68 19 74 11C80 3 86 3 92 11C98 19 104 19 110 11C116 3 122 3 128 11C132 16 136 18 138 18" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="hidden gap-4 md:flex">
+              <button class="card-hover grid size-11 place-items-center rounded-full bg-white font-black shadow-soft" aria-label="previous">‹</button>
+              <button class="card-hover grid size-11 place-items-center rounded-full bg-limey font-black shadow-soft" aria-label="next">›</button>
+            </div>
+          </div>
+
+          <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:px-16">
+            <article class="media-hover">
+              <img src="assets/images/works-01.webp" alt="SaaS UI/UX設計の制作実績" class="cutout-img h-[150px] w-full rounded-[31px] object-contain sm:h-[116px]" loading="lazy" />
+              <h3 class="mt-5 text-[14px] font-black">プロジェクト管理SaaSのUI/UX設計</h3>
+              <p class="mt-3 text-[11px] font-bold leading-[1.75] text-black/72">
+                プロダクトの価値を最大化するUI/UXを設計し、導入企業のアクティブ率を150%向上。
+              </p>
+            </article>
+            <article class="media-hover">
+              <img src="assets/images/works-02.webp" alt="D2Cブランドのブランディング実績" class="cutout-img h-[150px] w-full rounded-[31px] object-contain sm:h-[116px]" loading="lazy" />
+              <h3 class="mt-5 text-[14px] font-black">D2Cブランドのブランディング</h3>
+              <p class="mt-3 text-[11px] font-bold leading-[1.75] text-black/72">
+                ブランド価値からVI開発、パッケージまでをトータルで支援し、売上を200%伸長に貢献。
+              </p>
+            </article>
+            <article class="media-hover">
+              <img src="assets/images/works-03.webp" alt="コーポレートサイトリニューアル実績" class="cutout-img h-[150px] w-full rounded-[31px] object-contain sm:h-[116px]" loading="lazy" />
+              <h3 class="mt-5 text-[14px] font-black">コーポレートサイトリニューアル</h3>
+              <p class="mt-3 text-[11px] font-bold leading-[1.75] text-black/72">
+                企業の想いを伝えるデザインで信頼感を向上。問い合わせ数を180%に改善。
+              </p>
+            </article>
+            <article class="media-hover">
+              <img src="assets/images/works-04.webp" alt="フィットネスアプリのUIデザイン実績" class="cutout-img h-[150px] w-full rounded-[31px] object-contain sm:h-[116px]" loading="lazy" />
+              <h3 class="mt-5 text-[14px] font-black">フィットネスアプリのUIデザイン</h3>
+              <p class="mt-3 text-[11px] font-bold leading-[1.75] text-black/72">
+                継続率を高めるUI/UXを設計し、ユーザー満足度を大幅に向上。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- STRENGTHS SECTION -->
+      <section id="strengths" class="relative py-12 lg:py-14">
+        <img src="assets/images/decorative/dots.svg" alt="" class="pointer-events-none absolute left-[24%] top-28 w-24 text-black/30" loading="lazy" />
+        <img src="assets/images/decorative/dots.svg" alt="" class="pointer-events-none absolute right-7 top-40 w-24 text-black/30" loading="lazy" />
+        <div class="container-flow relative">
+          <div class="mb-9 lg:px-16">
+            <p class="text-[12px] font-black uppercase tracking-[0.08em] text-cyany">Strengths</p>
+            <h2 class="mt-3 text-[31px] font-black tracking-[0.08em]">選ばれる理由</h2>
+            <svg class="section-wave mt-1 w-28 text-cyany" viewBox="0 0 140 22" fill="none" aria-hidden="true">
+              <path d="M2 11C8 3 14 3 20 11C26 19 32 19 38 11C44 3 50 3 56 11C62 19 68 19 74 11C80 3 86 3 92 11C98 19 104 19 110 11C116 3 122 3 128 11C132 16 136 18 138 18" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
+            </svg>
+          </div>
+
+          <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:px-16">
+            <article class="media-hover">
+              <img src="assets/images/strengths-01.webp" alt="課題解決を重視した打ち合わせ風景" class="cutout-img h-[135px] w-full rounded-[34px] object-contain" loading="lazy" />
+              <h3 class="mt-5 text-[16px] font-black">課題解決にこだわる</h3>
+              <p class="mt-3 text-[11px] font-bold leading-[1.8] text-black/72">
+                ビジネス課題を深く理解し、成果につながるデザインを提案します。
+              </p>
+            </article>
+            <article class="media-hover pt-4 lg:pt-0">
+              <img src="assets/images/strengths-02.webp" alt="ユーザー視点のアプリデザイン" class="cutout-img h-[135px] w-full rounded-[34px] object-contain" loading="lazy" />
+              <h3 class="mt-5 text-[16px] font-black">ユーザー視点のデザイン</h3>
+              <p class="mt-3 text-[11px] font-bold leading-[1.8] text-black/72">
+                ユーザーの行動や心理を分析し、心地よい体験を設計します。
+              </p>
+            </article>
+            <article class="media-hover">
+              <img src="assets/images/strengths-03.webp" alt="スピーディーな設計資料" class="cutout-img h-[135px] w-full rounded-[34px] object-contain" loading="lazy" />
+              <h3 class="mt-5 text-[16px] font-black">スピーディーな対応</h3>
+              <p class="mt-3 text-[11px] font-bold leading-[1.8] text-black/72">
+                スタートアップのスピード感に合わせ、柔軟かつ迅速に対応します。
+              </p>
+            </article>
+            <article class="media-hover pt-4 lg:pt-0">
+              <img src="assets/images/strengths-04.webp" alt="伴走するパートナーのイメージ" class="cutout-img h-[135px] w-full rounded-[34px] object-contain" loading="lazy" />
+              <h3 class="mt-5 text-[16px] font-black">伴走するパートナー</h3>
+              <p class="mt-3 text-[11px] font-bold leading-[1.8] text-black/72">
+                一時的な制作会社ではなく、長期的な成長を支えるパートナーに。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FLOW SECTION -->
+      <section id="flow" class="relative overflow-hidden py-12 lg:py-14">
+        <div class="pointer-events-none absolute left-[-70px] top-8 h-44 w-44 rotate-[12deg] bg-limey/18 blob-soft"></div>
+        <div class="pointer-events-none absolute right-[-52px] bottom-4 h-48 w-48 rotate-[-18deg] bg-cyany/12 blob-soft"></div>
+        <div class="container-flow relative">
+          <div class="mb-9 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between lg:px-16">
+            <div>
+              <p class="text-[12px] font-black uppercase tracking-[0.08em] text-[#a8d600]">Flow</p>
+              <h2 class="mt-3 text-[31px] font-black tracking-[0.08em]">製作フロー</h2>
+              <svg class="section-wave mt-1 w-28 text-[#a8d600]" viewBox="0 0 140 22" fill="none" aria-hidden="true">
+                <path d="M2 11C8 3 14 3 20 11C26 19 32 19 38 11C44 3 50 3 56 11C62 19 68 19 74 11C80 3 86 3 92 11C98 19 104 19 110 11C116 3 122 3 128 11C132 16 136 18 138 18" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <p class="max-w-[430px] text-[12px] font-bold leading-[2] text-black/68 lg:text-right">
+              初回相談から公開後の改善まで、ビジネスの温度感に合わせて
+              迷わず進められるプロセスで伴走します。
+            </p>
+          </div>
+
+          <div class="relative lg:px-16">
+            <div class="pointer-events-none absolute left-[9%] right-[9%] top-[62px] hidden h-px bg-gradient-to-r from-limey via-pinky to-cyany lg:block"></div>
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+              <article class="card-hover relative rounded-[32px] bg-white/88 p-6 shadow-soft backdrop-blur">
+                <span class="absolute right-5 top-5 size-3 rounded-full bg-limey"></span>
+                <p class="font-hand text-[42px] font-bold leading-none text-[#a8d600]">01</p>
+                <h3 class="mt-5 text-[15px] font-black">ヒアリング</h3>
+                <p class="mt-3 text-[11px] font-bold leading-[1.8] text-black/68">
+                  目的・課題・理想の状態を整理し、制作の軸を明確にします。
+                </p>
+              </article>
+
+              <article class="card-hover relative rounded-[32px] bg-white/88 p-6 shadow-soft backdrop-blur lg:mt-8">
+                <span class="absolute right-5 top-5 size-3 rounded-full bg-violety"></span>
+                <p class="font-hand text-[42px] font-bold leading-none text-violety">02</p>
+                <h3 class="mt-5 text-[15px] font-black">課題整理</h3>
+                <p class="mt-3 text-[11px] font-bold leading-[1.8] text-black/68">
+                  ユーザー導線やブランド要件を洗い出し、優先順位を決めます。
+                </p>
+              </article>
+
+              <article class="card-hover relative rounded-[32px] bg-white/88 p-6 shadow-soft backdrop-blur">
+                <span class="absolute right-5 top-5 size-3 rounded-full bg-pinky"></span>
+                <p class="font-hand text-[42px] font-bold leading-none text-pinky">03</p>
+                <h3 class="mt-5 text-[15px] font-black">設計・デザイン</h3>
+                <p class="mt-3 text-[11px] font-bold leading-[1.8] text-black/68">
+                  ワイヤーからUI、ビジュアルまで一貫した体験に落とし込みます。
+                </p>
+              </article>
+
+              <article class="card-hover relative rounded-[32px] bg-white/88 p-6 shadow-soft backdrop-blur lg:mt-8">
+                <span class="absolute right-5 top-5 size-3 rounded-full bg-cyany"></span>
+                <p class="font-hand text-[42px] font-bold leading-none text-cyany">04</p>
+                <h3 class="mt-5 text-[15px] font-black">実装・調整</h3>
+                <p class="mt-3 text-[11px] font-bold leading-[1.8] text-black/68">
+                  表示崩れや動きの気持ちよさまで確認し、丁寧に仕上げます。
+                </p>
+              </article>
+
+              <article class="card-hover relative rounded-[32px] bg-white/88 p-6 shadow-soft backdrop-blur">
+                <span class="absolute right-5 top-5 size-3 rounded-full bg-limey"></span>
+                <p class="font-hand text-[42px] font-bold leading-none text-[#a8d600]">05</p>
+                <h3 class="mt-5 text-[15px] font-black">公開・改善</h3>
+                <p class="mt-3 text-[11px] font-bold leading-[1.8] text-black/68">
+                  公開後の反応を見ながら、次の成長につながる改善を続けます。
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLAN SECTION -->
+      <section id="plan" class="relative py-12 lg:py-14">
+        <div class="pointer-events-none absolute -left-16 bottom-12 h-64 w-44 rotate-[18deg] bg-violety/8 blob-soft"></div>
+        <div class="pointer-events-none absolute -right-12 bottom-8 h-56 w-56 rotate-[18deg] bg-pinky/13 blob-soft"></div>
+        <div class="container-flow relative grid gap-10 lg:grid-cols-[.62fr_1.7fr] lg:items-center">
+          <div class="lg:pl-16">
+            <p class="text-[12px] font-black uppercase tracking-[0.08em] text-violety">Plan</p>
+            <h2 class="mt-3 text-[31px] font-black tracking-[0.06em]">料金プラン</h2>
+            <svg class="section-wave mt-1 w-24 text-violety" viewBox="0 0 140 22" fill="none" aria-hidden="true">
+              <path d="M2 11C8 3 14 3 20 11C26 19 32 19 38 11C44 3 50 3 56 11C62 19 68 19 74 11C80 3 86 3 92 11C98 19 104 19 110 11C116 3 122 3 128 11C132 16 136 18 138 18" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
+            </svg>
+            <p class="mt-10 max-w-[210px] text-[12px] font-bold leading-[2] text-black/72">
+              ご要望に応じて<br />柔軟にカスタマイズ可能です。
+            </p>
+            <img src="assets/images/decorative/scribble.svg" alt="" class="mt-8 w-24 text-black" loading="lazy" />
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-3">
+            <article class="card-hover rounded-[32px] bg-white/90 p-7 shadow-soft xl:p-9">
+              <h3 class="text-center text-[14px] font-black uppercase tracking-[0.06em]">Branding Plan</h3>
+              <p class="mt-7 text-center text-[33px] font-medium tracking-[-0.02em]">¥600,000~</p>
+              <ul class="mt-8 space-y-4 text-[12px] font-bold">
+                <li class="flex items-center gap-3"><span class="grid size-4 place-items-center rounded-full border border-limey text-[10px] text-limey">✓</span>ブランド戦略</li>
+                <li class="flex items-center gap-3"><span class="grid size-4 place-items-center rounded-full border border-limey text-[10px] text-limey">✓</span>CI / VI開発</li>
+                <li class="flex items-center gap-3"><span class="grid size-4 place-items-center rounded-full border border-limey text-[10px] text-limey">✓</span>ブランドガイドライン</li>
+              </ul>
+              <a href="#contact" class="card-hover mt-10 flex h-11 items-center justify-between rounded-full bg-limey pl-6 pr-1 text-[12px] font-black shadow-soft">
+                詳細を見る<span class="grid size-9 place-items-center rounded-full bg-black text-white">→</span>
+              </a>
+            </article>
+
+            <article class="card-hover relative overflow-hidden rounded-[32px] bg-white p-7 shadow-soft ring-1 ring-violety/10 xl:p-9">
+              <div class="absolute inset-x-0 top-0 h-10 rounded-t-[32px] bg-gradient-to-r from-violety to-[#a765ff] text-center text-[13px] font-black leading-10 text-white">
+                人気No.1
+              </div>
+              <h3 class="mt-8 text-center text-[14px] font-black uppercase tracking-[0.06em] text-violety">UI/UX Plan</h3>
+              <p class="mt-6 text-center text-[34px] font-medium tracking-[-0.02em] text-violety">¥800,000~</p>
+              <ul class="mt-8 space-y-4 text-[12px] font-bold">
+                <li class="flex items-center gap-3"><span class="grid size-4 place-items-center rounded-full border border-violety text-[10px] text-violety">✓</span>UI/UX設計</li>
+                <li class="flex items-center gap-3"><span class="grid size-4 place-items-center rounded-full border border-violety text-[10px] text-violety">✓</span>プロトタイプ制作</li>
+                <li class="flex items-center gap-3"><span class="grid size-4 place-items-center rounded-full border border-violety text-[10px] text-violety">✓</span>ユーザーテスト支援</li>
+              </ul>
+              <a href="#contact" class="card-hover mt-10 flex h-11 items-center justify-between rounded-full bg-violety pl-6 pr-1 text-[12px] font-black text-white shadow-soft">
+                詳細を見る<span class="grid size-9 place-items-center rounded-full bg-white text-violety">→</span>
+              </a>
+            </article>
+
+            <article class="card-hover rounded-[32px] bg-white/90 p-7 shadow-soft xl:p-9">
+              <h3 class="text-center text-[14px] font-black uppercase tracking-[0.06em] text-cyany">Web Design Plan</h3>
+              <p class="mt-7 text-center text-[33px] font-medium tracking-[-0.02em]">¥500,000~</p>
+              <ul class="mt-8 space-y-4 text-[12px] font-bold">
+                <li class="flex items-center gap-3"><span class="grid size-4 place-items-center rounded-full border border-cyany text-[10px] text-cyany">✓</span>Webサイトデザイン</li>
+                <li class="flex items-center gap-3"><span class="grid size-4 place-items-center rounded-full border border-cyany text-[10px] text-cyany">✓</span>レスポンシブ対応</li>
+                <li class="flex items-center gap-3"><span class="grid size-4 place-items-center rounded-full border border-cyany text-[10px] text-cyany">✓</span>基本的な実装サポート</li>
+              </ul>
+              <a href="#contact" class="card-hover mt-10 flex h-11 items-center justify-between rounded-full bg-cyany pl-6 pr-1 text-[12px] font-black shadow-soft">
+                詳細を見る<span class="grid size-9 place-items-center rounded-full bg-white text-cyany">→</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section id="faq" class="relative py-12 lg:py-14">
+        <div class="container-flow grid gap-10 lg:grid-cols-[.78fr_1.42fr] lg:items-center">
+          <div class="lg:pl-16">
+            <p class="text-[12px] font-black uppercase tracking-[0.08em] text-pinky">FAQ</p>
+            <h2 class="mt-3 text-[31px] font-black tracking-[0.06em]">よくある質問</h2>
+            <svg class="section-wave mt-1 w-28 text-pinky" viewBox="0 0 140 22" fill="none" aria-hidden="true">
+              <path d="M2 11C8 3 14 3 20 11C26 19 32 19 38 11C44 3 50 3 56 11C62 19 68 19 74 11C80 3 86 3 92 11C98 19 104 19 110 11C116 3 122 3 128 11C132 16 136 18 138 18" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" />
+            </svg>
+            <div class="relative mt-7">
+              <img src="assets/images/faq-image.webp" alt="柔らかなソファがあるラウンジ空間" class="cutout-img w-full max-w-[390px] rounded-[36px] object-contain" loading="lazy" />
+              <img src="assets/images/decorative/scribble.svg" alt="" class="absolute -bottom-9 -left-2 w-20 rotate-[-16deg] text-limey" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="space-y-0">
+            <article data-faq data-open="false" class="border-b border-black/14">
+              <button data-faq-button class="flex w-full items-center gap-4 py-6 text-left">
+                <span class="text-[18px] font-black">Q</span>
+                <span class="flex-1 text-[14px] font-black">相談や見積もりは無料ですか？</span>
+                <span data-faq-icon class="grid size-10 shrink-0 place-items-center rounded-full border border-black/18 bg-white text-xl leading-none shadow-sm">+</span>
+              </button>
+              <div data-faq-panel class="faq-panel">
+                <p class="pb-6 pl-9 text-[12px] font-bold leading-[1.9] text-black/70">
+                  はい、初回相談・お見積もりは無料で行っております。お気軽にご相談ください。
+                </p>
+              </div>
+            </article>
+            <article data-faq data-open="false" class="border-b border-black/14">
+              <button data-faq-button class="flex w-full items-center gap-4 py-6 text-left">
+                <span class="text-[18px] font-black">Q</span>
+                <span class="flex-1 text-[14px] font-black">どのくらいの期間で制作できますか？</span>
+                <span data-faq-icon class="grid size-10 shrink-0 place-items-center rounded-full border border-black/18 bg-white text-xl leading-none shadow-sm">+</span>
+              </button>
+              <div data-faq-panel class="faq-panel">
+                <p class="pb-6 pl-9 text-[12px] font-bold leading-[1.9] text-black/70">
+                  プロジェクトの規模によりますが、UI/UX設計は1〜2ヶ月、Webサイト制作は2〜3ヶ月が目安です。
+                </p>
+              </div>
+            </article>
+            <article data-faq data-open="false" class="border-b border-black/14">
+              <button data-faq-button class="flex w-full items-center gap-4 py-6 text-left">
+                <span class="text-[18px] font-black">Q</span>
+                <span class="flex-1 text-[14px] font-black">遠方でも依頼できますか？</span>
+                <span data-faq-icon class="grid size-10 shrink-0 place-items-center rounded-full border border-black/18 bg-white text-xl leading-none shadow-sm">+</span>
+              </button>
+              <div data-faq-panel class="faq-panel">
+                <p class="pb-6 pl-9 text-[12px] font-bold leading-[1.9] text-black/70">
+                  はい、全国どこからでもオンラインで対応可能です。
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM CTA -->
+      <section id="contact" class="relative pb-8 pt-6 lg:pb-10">
+        <div class="container-flow">
+          <div class="grain relative overflow-hidden rounded-[56px] px-8 py-10 shadow-lift sm:px-14 lg:px-20">
+            <span class="absolute -left-1 top-4 h-14 w-16 rotate-[-19deg] bg-limey blob-soft"></span>
+            <span class="absolute bottom-5 left-7 h-8 w-9 rotate-[24deg] bg-violety blob-soft"></span>
+            <div class="relative z-10 grid items-center gap-8 lg:grid-cols-[1fr_.86fr_1.05fr]">
+              <h2 class="font-marker text-[30px] font-normal uppercase leading-[1.35] tracking-normal text-black sm:text-[39px]">
+                Let’s Create<br />Something Great.
+              </h2>
+              <div>
+                <p class="text-[13px] font-black leading-[2]">
+                  あなたのビジネスに、新しい流れを。<br />
+                  まずはお気軽にご相談ください。
+                </p>
+                <a href="mailto:hello@example.com" class="card-hover mt-6 inline-flex h-12 items-center gap-8 rounded-full bg-black py-1 pl-7 pr-1.5 text-[12px] font-black text-white shadow-button">
+                  無料で相談してみる
+                  <span class="grid size-9 place-items-center rounded-full bg-limey text-black">›</span>
+                </a>
+              </div>
+              <div class="relative min-h-[150px]">
+                <img src="assets/images/cta-person.webp" alt="相談中の人物とインテリア" class="cutout-img absolute right-0 top-1/2 w-full max-w-[360px] -translate-y-1/2 rounded-[42px] object-contain" loading="lazy" />
+                <img src="assets/images/decorative/wave.svg" alt="" class="absolute -right-3 top-2 w-12 rotate-[-60deg] text-black" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button
+      type="button"
+      class="top-button fixed bottom-6 right-6 z-40 flex h-12 items-center gap-3 rounded-full bg-black py-1 pl-5 pr-1.5 text-[11px] font-black uppercase tracking-[0.12em] text-white shadow-button"
+      data-top-button
+      data-visible="false"
+      aria-label="ページ上部へ戻る"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      Top
+      <span class="top-button-icon grid size-9 place-items-center rounded-full bg-limey text-black" aria-hidden="true">↑</span>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
